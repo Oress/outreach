@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outreach - Email Marketing Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-darkest: #121212;
+            --color-dark: #1e1e1e;
+            --color-medium: #2f2f2f;
+            --color-light: #b3b3b3;
+            --color-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-darkest);
+            color: var(--color-white);
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(to right, var(--color-dark), var(--color-medium));
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-white);
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-light);
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+        }
+
+        h1, h2 {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        #home {
+            animation: fadeIn 2s;
+        }
+
+        #home h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            color: var(--color-light);
+        }
+
+        .benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            flex-basis: calc(33.333% - 2rem);
+            margin: 1rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--color-dark), var(--color-medium));
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-item i {
+            font-size: 4rem;
+            color: var(--color-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+
+        .benefit-item p {
+            font-size: 1.1rem;
+            color: var(--color-light);
+        }
+
+        .plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plan {
+            flex-basis: calc(33.333% - 2rem);
+            margin: 1rem;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, var(--color-dark), var(--color-medium));
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .plan h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+
+        .plan .price {
+            font-size: 2.5rem;
+            color: var(--color-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .plan ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .plan li {
+            margin-bottom: 0.5rem;
+        }
+
+        .plan button {
+            background-color: var(--color-light);
+            color: var(--color-darkest);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .plan button:hover {
+            background-color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        .reviews {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review {
+            flex-basis: calc(33.333% - 2rem);
+            margin: 1rem;
+            padding: 2rem;
+            background-color: var(--color-dark);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .review img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid var(--color-light);
+        }
+
+        .review .stars {
+            color: var(--color-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .review p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--color-dark);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            flex-basis: calc(50% - 2rem);
+            margin: 1rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--color-dark), var(--color-medium));
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+
+        .feature-item ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-item li {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-icons a {
+            color: var(--color-light);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--color-white);
+        }
+
+        @media (max-width: 768px) {
+            #home h1 {
+                font-size: 3rem;
+            }
+
+            .benefit-item, .plan, .review {
+                flex-basis: calc(50% - 2rem);
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #home h1 {
+                font-size: 2.5rem;
+            }
+
+            .benefit-item, .plan, .review {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="#home" class="logo">Outreach</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home">
+    <h1>Outreach</h1>
+    <p>Elevate Your Email Marketing</p>
+</section>
+
+<section id="features">
+    <h2>Our Features</h2>
+    <div class="features">
+        <div class="feature-item">
+            <h3>Email Campaign Management</h3>
+            <ul>
+                <li>Create, schedule, and send email campaigns</li>
+                <li>Set up automated email sequences based on user actions</li>
+                <li>Personalize email content using user data</li>
+                <li>A/B Testing: Test different email versions</li>
+            </ul>
+        </div>
+        <div class="feature-item">
+            <h3>Analytics & Reporting</h3>
+            <ul>
+                <li>Detailed reports on email performance</li>
+                <li>Track open rates, click-through rates, and more</li>
+                <li>Gain insights to optimize your campaigns</li>
+            </ul>
+        </div>
+        <div class="feature-item">
+            <h3>Templates & Customization</h3>
+            <ul>
+                <li>Access a library of customizable email templates</li>
+                <li>Create and save your own templates</li>
+                <li>Easy-to-use drag-and-drop editor</li>
+            </ul>
+        </div>
+        <div class="feature-item">
+            <h3>Segmentation & Integrations</h3>
+            <ul>
+                <li>Segment your email lists based on various criteria</li>
+                <li>Integrate with CRM systems and social media</li>
+                <li>Connect with e-commerce platforms and other tools</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section id="benefits">
+    <h2>Benefits of Email Marketing</h2>
+    <div class="benefits">
+        <div class="benefit-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Increased ROI</h3>
+            <p>Achieve higher returns on your marketing investments with targeted campaigns</p>
+        </div>
+        <div class="benefit-item">
+            <i class="fas fa-bullseye"></i>
+            <h3>Targeted Campaigns</h3>
+            <p>Reach the right audience with personalized messages that resonate</p>
+        </div>
+        <div class="benefit-item">
+            <i class="fas fa-chart-pie"></i>
+            <h3>Detailed Analytics</h3>
+            <p>Gain valuable insights to optimize your marketing strategies effectively</p>
+        </div>
+    </div>
+</section>
+
+<section id="plans">
+    <h2>Choose Your Plan</h2>
+    <div class="plans">
+        <div class="plan">
+            <h3>Basic</h3>
+            <p class="price">$29/mo</p>
+            <ul>
+                <li>Up to 10,000 emails</li>
+                <li>Basic templates</li>
+                <li>Email support</li>
+                <li>Analytics dashboard</li>
+            </ul>
+            <button>Get Started</button>
+        </div>
+        <div class="plan">
+            <h3>Pro</h3>
+            <p class="price">$79/mo</p>
+            <ul>
+                <li>Up to 50,000 emails</li>
+                <li>Advanced templates</li>
+                <li>Priority support</li>
+                <li>Advanced analytics</li>
+            </ul>
+            <button>Get Started</button>
+        </div>
+        <div class="plan">
+            <h3>Enterprise</h3>
+            <p class="price">Custom</p>
+            <ul>
+                <li>Unlimited emails</li>
+                <li>Custom templates</li>
+                <li>Dedicated manager</li>
+                <li>AI-powered insights</li>
+            </ul>
+            <button>Contact Us</button>
+        </div>
+    </div>
+</section>
+
+<section id="reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="reviews">
+        <div class="review">
+            <img src="https://i.pravatar.cc/150?img=1" alt="User 1">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>"Outreach has transformed our email marketing strategy. Highly recommended!"</p>
+            <p><strong>- John Doe, CEO</strong></p>
+        </div>
+        <div class="review">
+            <img src="https://i.pravatar.cc/150?img=2" alt="User 2">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"The analytics provided by Outreach have been invaluable for our business growth."</p>
+            <p><strong>- Jane Smith, Marketing Director</strong></p>
+        </div>
+        <div class="review">
+            <img src="https://i.pravatar.cc/150?img=3" alt="User 3">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>"Easy to use and powerful features. Outreach is a game-changer!"</p>
+            <p><strong>- Mike Johnson, Small Business Owner</strong></p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2024 Outreach. All rights reserved.</p>
+</footer>
+</body>
+</html>

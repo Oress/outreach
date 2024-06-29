@@ -1,0 +1,39 @@
+@startuml
+database "Postgres" {
+}
+
+[ReverseProxy(Nginx)]
+
+node "Kubernetes Cluster" {
+  [ReverseProxy(Nginx)] --> [Ingress Controller]
+  [Ingress Controller] --> [Landing Page] : [example.com/]
+  [Ingress Controller] --> [Front End] : [app.example.com]
+
+  [Front End] --> [Gateway API]
+  [Front End] --> [KeyCloak] : login or registration
+  [Gateway API] -> [KeyCloak] : token validation
+
+  [Gateway API] --> [Campaign Management]
+  [Gateway API] --> [Analytics & Reporting]
+  [Gateway API] --> [User Management]
+  [Gateway API] --> [Customer Support]
+  [Gateway API] --> [Notification]
+  [Gateway API] --> [Scheduler]
+
+
+  [Message Broker]
+  note right of [Message Broker]
+    Use Orchestration approach (event based)
+  end note
+}
+
+[KeyCloak] --> "Postgres"
+[Scheduler] --> "Postgres"
+
+cloud {
+    [Scheduler] --> [SES]
+}
+
+
+
+@enduml
