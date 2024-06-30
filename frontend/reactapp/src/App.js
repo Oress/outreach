@@ -1,8 +1,14 @@
 import NavBar from "./navbar/NavBar";
+import ProductCategories from "./main/ProductCategories";
+import Contact from "./common/Contact";
+import { Outlet } from "react-router-dom";
 
 export const App = () => {
     return (
-        <NavBar></NavBar>
+        <section>
+            <NavBar></NavBar>
+            <Outlet></Outlet>
+        </section>
     );
 }
-export default NavBar;
+export default App;

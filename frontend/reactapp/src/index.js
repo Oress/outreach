@@ -3,12 +3,33 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import NavBar from './navbar/NavBar';
 import App from './App';
+import Contact from './common/Contact';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import ProductCategories from './main/ProductCategories';
+import ProfileLayout from './profile/ProfileLayout';
+import Personal from './profile/Personal';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path='contact-us' element={<Contact />} />
+          <Route path='categories' element={<ProductCategories />} />
+          <Route path='profile' element={<ProfileLayout/>} >
+            <Route path='personal' element={<Personal />} />
+          </Route>
+        </Route>
+        {/* <Route element={<PageLayout />}>
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/tos" element={<Tos />} />
+        </Route> */}
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
