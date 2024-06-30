@@ -10,27 +10,29 @@ import { Routes, Route } from 'react-router-dom';
 import ProductCategories from './main/ProductCategories';
 import ProfileLayout from './profile/ProfileLayout';
 import Personal from './profile/Personal';
+import { ReactKeycloakProvider } from '@react-keycloak/web'
 
+import keycloak from './keycloak'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <ReactKeycloakProvider authClient={keycloak}>
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<App />}>
-          <Route path='contact-us' element={<Contact />} />
-          <Route path='categories' element={<ProductCategories />} />
-          <Route path='profile' element={<ProfileLayout/>} >
-            <Route path='personal' element={<Personal />} />
+        <Routes>
+          <Route path='/' element={<App />}>
+            <Route path='contact-us' element={<Contact />} />
+            <Route path='categories' element={<ProductCategories />} />
+            <Route path='profile' element={<ProfileLayout />} >
+              <Route path='personal' element={<Personal />} />
+            </Route>
           </Route>
-        </Route>
-        {/* <Route element={<PageLayout />}>
+          {/* <Route element={<PageLayout />}>
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/tos" element={<Tos />} />
         </Route> */}
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+        </Routes>
+      </BrowserRouter>
+    </ReactKeycloakProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

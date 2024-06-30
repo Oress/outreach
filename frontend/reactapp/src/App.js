@@ -3,6 +3,7 @@ import ProductCategories from "./main/ProductCategories";
 import Contact from "./common/Contact";
 import { Outlet } from "react-router-dom";
 
+
 export const App = () => {
     return (
         <section>
