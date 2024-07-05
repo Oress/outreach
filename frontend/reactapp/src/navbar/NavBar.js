@@ -67,8 +67,8 @@ const NavBar = () => {
           </button>
           {isDropdownOpen && (
             <div className="absolute right-0 mt-2 py-2 w-48 bg-stone-900 rounded-md shadow-xl z-20 te">
-              <a href="/profile" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Your Profile</a>
-              <a href="/settings" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Settings</a>
+              <Link to="/profile" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Your Profile</Link>
+              <Link to="/settings" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Settings</Link>
               <Link onClick={() => keycloak.logout(loginOptions)} className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Logout</Link>
             </div>
           )}
