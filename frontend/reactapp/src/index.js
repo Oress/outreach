@@ -10,6 +10,7 @@ import ProfileLayout from './components/profile/ProfileLayout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Orders from './components/orders/Orders';
+import NotFound from './components/common/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,8 @@ root.render(
             <Route path='orders' element={<Orders />} />
           </Route>
         </Route>
+        <Route path='*'  element={<NotFound />} />
+        <Route path='*' element={<NotFound />} />
         {/* <Route element={<PageLayout />}>
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/tos" element={<Tos />} />

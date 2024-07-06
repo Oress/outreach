@@ -64,8 +64,8 @@ const NavBar = () => {
         {/* Navigation Links */}
         <div className="space-x-5 font-bold flex items-center">
           <Link to="/categories" className="hover:text-gray-300">Categories</Link>
-          <Link to="/cart" className="hover:text-gray-300">Cart</Link>
-          <Link to="/wishlist" className="hover:text-gray-300">Wishlist</Link>
+          <Link to="/profile/cart" className="hover:text-gray-300">Cart</Link>
+          <Link to="/profile/wishlist" className="hover:text-gray-300">Wishlist</Link>
   
           {/* Profile Circle and Dropdown */}
           {isLoggedIn && 
