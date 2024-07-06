@@ -9,6 +9,7 @@ import Personal from './components/profile/Personal';
 import ProfileLayout from './components/profile/ProfileLayout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Orders from './components/orders/Orders';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
           <Route path='profile' element={<ProfileLayout />} >
             <Route path='personal' element={<Personal />} />
             <Route path='cart' element={<Cart />} />
+            <Route path='orders' element={<Orders />} />
           </Route>
         </Route>
         {/* <Route element={<PageLayout />}>
