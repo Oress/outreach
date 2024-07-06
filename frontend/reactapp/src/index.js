@@ -1,38 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import NavBar from './navbar/NavBar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
-import Contact from './common/Contact';
+import Cart from './components/cart/Cart';
+import Contact from './components/common/Contact';
+import ProductCategories from './components/main/ProductCategories';
+import Personal from './components/profile/Personal';
+import ProfileLayout from './components/profile/ProfileLayout';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
-import ProductCategories from './main/ProductCategories';
-import ProfileLayout from './profile/ProfileLayout';
-import Personal from './profile/Personal';
-import { ReactKeycloakProvider } from '@react-keycloak/web'
-
-import keycloak from './keycloak'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ReactKeycloakProvider authClient={keycloak}>
-    <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<App />}>
-            <Route path='contact-us' element={<Contact />} />
-            <Route path='categories' element={<ProductCategories />} />
-            <Route path='profile' element={<ProfileLayout />} >
-              <Route path='personal' element={<Personal />} />
-            </Route>
+  <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path='contact-us' element={<Contact />} />
+          <Route path='categories' element={<ProductCategories />} />
+          <Route path='profile' element={<ProfileLayout />} >
+            <Route path='personal' element={<Personal />} />
+            <Route path='cart' element={<Cart />} />
           </Route>
-          {/* <Route element={<PageLayout />}>
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/tos" element={<Tos />} />
-        </Route> */}
-        </Routes>
-      </BrowserRouter>
-    </ReactKeycloakProvider>
+        </Route>
+        {/* <Route element={<PageLayout />}>
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/tos" element={<Tos />} />
+      </Route> */}
+      </Routes>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

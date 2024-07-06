@@ -1,18 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-import { useKeycloak } from '@react-keycloak/web'
+import UserService from '../../services/UserService';
 
 const NavBar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const dropdownRef = useRef(null);
 
-  const { keycloak, initialized } = useKeycloak();
-
   const loginOptions = {
     redirectUri: window.location.origin,
   }
+
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -21,9 +20,18 @@ const NavBar = () => {
       }
     };
 
+    UserService.isLoggedIn().then((result) => {
+      setLoggedIn(result)
+      console.log('isLoggedIn', result);
+    }).catch((e) => {
+      console.error('isLoggedIn', e);
+    });
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [dropdownRef]);
+
+
 
   return (
     <nav className={`bg-gradient-to-r from-stone-900 to-stone-800 text-white p-6 ${isSearchFocused ? 'bg-opacity-50 backdrop-filter backdrop-blur-sm' : ''}`}>
@@ -60,7 +68,7 @@ const NavBar = () => {
           <Link to="/wishlist" className="hover:text-gray-300">Wishlist</Link>
   
           {/* Profile Circle and Dropdown */}
-          {!!keycloak.authenticated && 
+          {isLoggedIn && 
           <div className="relative" ref={dropdownRef}>
           <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none">
             <img className="object-cover w-full h-full" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*B8c1ED3QV_yaa6PAWqDgMw.png" alt="Profile" />
@@ -69,14 +77,14 @@ const NavBar = () => {
             <div className="absolute right-0 mt-2 py-2 w-48 bg-stone-900 rounded-md shadow-xl z-20 te">
               <Link to="/profile" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Your Profile</Link>
               <Link to="/settings" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Settings</Link>
-              <Link onClick={() => keycloak.logout(loginOptions)} className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Logout</Link>
+              <Link onClick={() => UserService.doLogout(loginOptions)} className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Logout</Link>
             </div>
           )}
         </div>}
 
-        {!keycloak.authenticated && 
+        {!isLoggedIn && 
           <div className="relative">
-          <button type="button" onClick={() => keycloak.login(loginOptions)} className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
+          <button type="button" onClick={() => UserService.doLogin(loginOptions)} className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
         </div>}
         </div>
       </div>

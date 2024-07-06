@@ -1,6 +1,6 @@
-import NavBar from "./navbar/NavBar";
-import ProductCategories from "./main/ProductCategories";
-import Contact from "./common/Contact";
+import NavBar from "./components/navbar/NavBar";
+import ProductCategories from "./components/main/ProductCategories";
+import Contact from "./components/common/Contact";
 import { Outlet } from "react-router-dom";
 
 

@@ -1,0 +1,8 @@
+{
+    "realm": "outreach",
+    "auth-server-url": "http://localhost:8080/",
+    "ssl-required": "external",
+    "resource": "reactapp",
+    "public-client": true,
+    "confidential-port": 0
+  }
