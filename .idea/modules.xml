@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/campaign-management.iml" filepath="$PROJECT_DIR$/campaign-management.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/outreach.iml" filepath="$PROJECT_DIR$/.idea/outreach.iml" />
     </modules>
   </component>

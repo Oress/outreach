@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
-import Cart from './components/cart/Cart';
+import Cart from './components/profile/Cart';
 import Contact from './components/common/Contact';
 import ProductCategories from './components/main/ProductCategories';
 import Personal from './components/profile/Personal';
+import Wishlist from './components/profile/Wishlist';
 import ProfileLayout from './components/profile/ProfileLayout';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -23,6 +24,7 @@ root.render(
             <Route path='personal' element={<Personal />} />
             <Route path='cart' element={<Cart />} />
             <Route path='orders' element={<Orders />} />
+            <Route path='wishlist' element={<Wishlist />} />
           </Route>
         </Route>
         <Route path='*'  element={<NotFound />} />

@@ -18,7 +18,7 @@ const ProfileLayout = () => {
                         <Link to="/profile/cart" className="block text-white">Cart</Link>
                     </li>
                     <li className="px-4 py-2">
-                        <Link to="/wishlist" className="block text-white">Wishlist</Link>
+                        <Link to="/profile/wishlist" className="block text-white">Wishlist</Link>
                     </li>
                 </ul>
             </div>
